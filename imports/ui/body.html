@@ -1,0 +1,255 @@
+<body>
+
+  <div class="container">
+  
+	<style>
+		h2 {
+			border: 1px solid black;
+			border-radius: 5px;
+			font-family: "Segoe UI",Arial,sans-serif;
+			background-color: blue;
+			color: white;
+			text-align: center-left;
+			padding: 10px;
+		}
+		
+		h3 {
+			border: 1px solid black;
+			border-radius: 5px;
+			font-family: "Segoe UI",Arial,sans-serif;
+			background-color: purple;
+			color: white;
+			text-align: center-left;
+			padding: 10px;
+		}
+		
+		body {
+			font-family: "Segoe UI",Arial,sans-serif;
+		}
+		
+	</style>
+  
+   <header>
+  {{> loginButtons}}
+	<br/>
+	<h2>
+		<center><img src="mycirculareconomy.png" height="100" />My Circular Economy</center>
+	</h2>
+
+	{{#if currentUser}}
+        <label class="hide-archived">
+          <input type="checkbox" />
+            hide the ticked items (items I've practised recently)
+        </label>
+
+		<h2>
+			<i class="fa fa-bicycle" aria-hidden="true"></i>
+			<i class="fa fa-car" aria-hidden="true"></i>
+			<i class="fa fa-bus" aria-hidden="true"></i>
+			<br/>Transport</h2>
+		<h2><i class="fa fa-home" aria-hidden="true"></i>
+			<br/>Accommodation</h2>
+		<h2><i class="fa fa-laptop" aria-hidden="true"></i>
+			<br/>Digital Life</h2>
+		<h2><i class="fa fa-archive" aria-hidden="true"></i>
+			<br/>Stuff</h2>
+		<h2><i class="fa fa-ship" aria-hidden="true"></i>
+			<br/>Hobbies</h2>
+		<h2><i class="fa fa-male" aria-hidden="true"></i>
+			<br/>Me</h2>
+		<h2><i class="fa fa-pie-chart" aria-hidden="true"></i>
+			<br/>Food</h2>
+		<h2><i class="fa fa-globe" aria-hidden="true"></i>
+			<br/>Travel</h2>
+
+		{{/if}}
+    </header>
+	  
+	 
+	
+    <header>
+      {{#if currentUser}}
+			<h2>
+			<i class="fa fa-bicycle" aria-hidden="true"></i>
+			<i class="fa fa-car" aria-hidden="true"></i>
+			<i class="fa fa-bus" aria-hidden="true"></i>
+			<br/>Transport</h2>      
+			list recent examples of this in your life.
+ 
+      <form class="new-Transport">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each transportData}}
+        {{> transport}}
+      {{/each}}
+      {{/if}}
+    </ul>
+
+
+    <header>
+      {{#if currentUser}}
+      <h2><i class="fa fa-home" aria-hidden="true"></i>
+			<br/>Accommodation</h2>
+		list recent examples of this in your life.
+ 
+      <form class="new-Accommodation">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each accommodationData}}
+        {{> accommodation}}
+      {{/each}}
+      {{/if}}
+    </ul>
+
+	
+	
+	<header>
+      {{#if currentUser}}
+      <h2><i class="fa fa-laptop" aria-hidden="true"></i>
+			<br/>Digital Life</h2>
+		list recent examples of this in your life.
+ 
+      <form class="new-DigitalLife">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each digitalLifeData}}
+        {{> digitalLife}}
+      {{/each}}
+      {{/if}}
+    </ul>
+
+	
+	
+	    <header>
+      {{#if currentUser}}
+      <h2><i class="fa fa-archive" aria-hidden="true"></i>
+			<br/>Stuff</h2>
+list recent examples of this in your life.
+ 
+      <form class="new-Stuff">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each stuffData}}
+        {{> stuff}}
+      {{/each}}
+      {{/if}}
+    </ul>
+
+	
+	
+	<header>
+      {{#if currentUser}}
+		<h2><i class="fa fa-ship" aria-hidden="true"></i>
+			<br/>Hobbies</h2>
+      list recent examples of this in your life.
+ 
+      <form class="new-Hobbies">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each hobbiesData}}
+        {{> hobbies}}
+      {{/each}}
+      {{/if}}
+    </ul>
+
+	
+	
+	<header>
+      {{#if currentUser}}
+		<h2><i class="fa fa-male" aria-hidden="true"></i>
+			<br/>Me</h2>
+      list recent examples of this in your life.
+ 
+      <form class="new-Me">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each meData}}
+        {{> me}}
+      {{/each}}
+      {{/if}}
+    </ul>
+
+	    <header>
+      {{#if currentUser}}
+	  		<h2><i class="fa fa-pie-chart" aria-hidden="true"></i>
+			<br/>Food</h2>
+      list recent examples of this in your life.
+ 
+      <form class="new-Food">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each foodData}}
+        {{> food}}
+      {{/each}}
+      {{/if}}
+    </ul>
+
+	    <header>
+      {{#if currentUser}}
+		<h2><i class="fa fa-globe" aria-hidden="true"></i>
+			<br/>Travel</h2>
+      list recent examples of this in your life.
+ 
+      <form class="new-Travel">
+        <input type="text" name="text" placeholder="Type to add new item" />
+      </form>
+      {{/if}}
+    </header>
+ 
+    <ul>
+      {{#if currentUser}}
+      {{#each travelData}}
+        {{> travel}}
+      {{/each}}
+      {{/if}}
+    </ul>
+	
+  </div>  
+
+
+</body>
+
+	
+
+
+ 
